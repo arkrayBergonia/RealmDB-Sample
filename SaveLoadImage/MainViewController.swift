@@ -26,6 +26,36 @@ class MainViewController: UIViewController {
     }
 
     
+    @IBAction func saveBtnTapped(_ sender: Any) {
+        self.selectFromGallery()
+    }
+    
+    @IBAction func loadBtnTapped(_ sender: Any) {
+    }
+    
+}
+
+extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private func selectFromGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.delegate = self
+            present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+    
+    // PhotoLibrary Functions
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("Expected a dictionary containing an image, but was provided the following: \(info)") }
+        self.imageToSave.isHidden = false;
+        self.imageToSave.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension MainViewController {

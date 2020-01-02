@@ -19,39 +19,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ijv-QB-eT5">
-                                <rect key="frame" x="65" y="84" width="284" height="530"/>
+                                <rect key="frame" x="65" y="84" width="284" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhW-M5-pgJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="284" height="205"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhW-M5-pgJ">
+                                        <rect key="frame" x="0.0" y="-205" width="284" height="205"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="205" id="WQY-4G-pZ4"/>
                                             <constraint firstAttribute="width" constant="284" id="atN-bt-DO1"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3H-mQ-3Bt">
-                                        <rect key="frame" x="0.0" y="225" width="284" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5Gm-Gp-y84"/>
                                             <constraint firstAttribute="width" constant="284" id="Ipl-Bl-6bO"/>
                                         </constraints>
                                         <state key="normal" title="SAVE"/>
+                                        <connections>
+                                            <action selector="saveBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0i-zN-eiW"/>
+                                        </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MNQ-Uc-4mb">
-                                        <rect key="frame" x="0.0" y="275" width="284" height="205"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MNQ-Uc-4mb">
+                                        <rect key="frame" x="0.0" y="40" width="284" height="205"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="205" id="3Gm-Es-uVU"/>
                                             <constraint firstAttribute="width" constant="284" id="86l-LC-bh5"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEV-eW-O9h">
-                                        <rect key="frame" x="0.0" y="500" width="284" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="284" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="284" id="6en-DX-1ii"/>
                                             <constraint firstAttribute="height" constant="30" id="hAf-3B-kOw"/>
                                         </constraints>
                                         <state key="normal" title="LOAD"/>
+                                        <connections>
+                                            <action selector="loadBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxL-6W-kzy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

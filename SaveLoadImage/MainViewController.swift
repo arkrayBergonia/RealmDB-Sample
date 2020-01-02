@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func loadBtnTapped(_ sender: Any) {
+        self.imageToLoad.isHidden = false
+        self.imageToLoad.image = self.retrieveImage(forKey: "keyImage", inStorageType: StorageType.userDefaults)
     }
     
 }
@@ -50,6 +52,7 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("Expected a dictionary containing an image, but was provided the following: \(info)") }
         self.imageToSave.isHidden = false;
         self.imageToSave.image = selectedImage
+        self.store(image: selectedImage, forKey: "keyImage", withStorageType: StorageType.userDefaults)
         dismiss(animated: true, completion: nil)
     }
     

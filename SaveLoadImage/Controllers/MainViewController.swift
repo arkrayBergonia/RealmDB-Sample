@@ -23,6 +23,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var loadBtn: UIButton!
     
+    let realm = try! Realm()
+    
     var chosenStorageType: StorageType = StorageType.realmSwift
     
     override func viewDidLoad() {
@@ -113,7 +115,19 @@ extension MainViewController {
                 UserDefaults.standard.set(pngRepresentation,
                                           forKey: key)
             case .realmSwift:
-                print("RealmSwift ************")
+                print("RealmSwift ************ SAVING")
+                let imageData = image.jpegData(compressionQuality: 0.5)
+                let memo = MemoData()
+                memo.memoText = "memoPlus XD"
+                memo.memoImage = imageData
+                
+                do {
+                    try realm.write {
+                        realm.add(memo)
+                    }
+                } catch {
+                    print("Error saving category \(error)")
+                }
             }
         }
     }
@@ -133,7 +147,17 @@ extension MainViewController {
                 return image
             }
         case .realmSwift:
-            print("RealmSwift ************")
+            print("RealmSwift ************ LOAD / RETRIEVE")
+            let memoDataResult = realm.objects(MemoData.self)
+            
+            if memoDataResult.count > 0 {
+                if let firstData = memoDataResult.first {
+                    if let imageData = firstData.memoImage as? Data {
+                        let image = UIImage(data: imageData)
+                        return image
+                    }
+                }
+            }
         }
         
         return nil

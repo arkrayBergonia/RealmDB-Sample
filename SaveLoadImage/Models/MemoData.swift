@@ -11,5 +11,5 @@ import RealmSwift
 
 class MemoData: Object {
     @objc dynamic var memoText: String = ""
-    @objc dynamic var memoImage: NSData? = nil
+    @objc dynamic var memoImage: Data? = nil
 }

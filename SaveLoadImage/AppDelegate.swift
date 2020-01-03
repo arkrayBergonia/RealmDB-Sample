@@ -19,16 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
-        let memo = MemoData()
-        memo.memoText = "First entry to our journal"
         do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(memo)
-            }
+            _ = try Realm()
         } catch {
-            print("Error in initializing new realm, \(error)")
+            print("Error initialising new realm, \(error)")
         }
+        
         
         return true
     }
